@@ -7,6 +7,7 @@
 import numpy as np
 from matplotlib import pyplot as plt
 import pandas as pd
+from matplotlib.ticker import ScalarFormatter
 
 
 # In[2]:
@@ -24,11 +25,6 @@ df = pd.DataFrame([A, B, C, S, E], index=["x", "squarex", "$cos_x$", "sinx", "er
 
 
 plt.rcParams["mathtext.fontset"] = "stix"
-
-
-# In[7]:
-
-
 plt.rcParams['font.family'] = 'Arial'
 plt.rcParams['font.size'] = 15  # 適当に必要なサイズに
 plt.rcParams['xtick.direction'] = 'in'  # in or out
@@ -40,31 +36,37 @@ plt.rcParams["legend.framealpha"] = 1  # 透明度の指定、0で塗りつぶ�
 plt.rcParams["legend.edgecolor"] = 'black'  # edgeの色を変更
 
 
-# In[10]:
+# In[4]:
 
 
+fig, ax = plt.subplots()
 for i, coln in enumerate(df.columns):
-    plt.plot(df.index, df[coln], label=coln)
-plt.xlabel("hoge")
-plt.ylabel("huga")
-plt.title("piyo")
-plt.minorticks_on()
-plt.grid(which="major", color="black", alpha=0.4)
-plt.grid(which="minor", color="gray", linestyle=":")
+    ax.plot(df.index, df[coln] * 1e6, label=coln)
+ax.set_xlabel("hoge")
+ax.set_ylabel("huga")
+ax.set_title("piyo")
+ax.yaxis.set_major_formatter(ScalarFormatter(useMathText=True))
+ax.minorticks_on()
+ax.grid(which="major", color="black", alpha=0.4)
+ax.grid(which="minor", color="gray", linestyle=":")
 plt.show()
 
 
-# In[14]:
+# In[5]:
 
+
+fig, ax = plt.subplots()
 
 for i, coln in enumerate(df.columns):
-    plt.scatter(df.index, df[coln], label=coln,
-                s=5)  # sは点のサイズ
-plt.xlabel("hoge")
-plt.ylabel("huga")
-plt.title("piyo")
-plt.minorticks_on()
-plt.grid(which="major", color="black", alpha=0.4)
-plt.grid(which="minor", color="gray", linestyle=":")
-plt.savefig("hoge", dpi=300)  # dpiは解像度。300だとちょっと大きい。
+    ax.scatter(df.index, df[coln],
+               label=coln,
+               s=5)  # sは点のサイズ
+ax.set_xlabel("hoge")
+ax.set_ylabel("huga")
+ax.set_title("piyo")
+ax.yaxis.set_major_formatter(ScalarFormatter(useMathText=True))
+ax.minorticks_on()
+ax.grid(which="major", color="black", alpha=0.4)
+ax.grid(which="minor", color="gray", linestyle=":")
 plt.show()
+
