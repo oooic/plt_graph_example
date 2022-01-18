@@ -1,0 +1,10 @@
+axes.xmargin: 0.05
+axes.ymargin: 0.05
+font.family: Arial
+font.size: 15
+legend.edgecolor: black
+legend.fancybox: false #legendの丸角
+legend.framealpha: 1
+xtick.direction: in
+ytick.direction: in
+mathtext.fontset: stix
