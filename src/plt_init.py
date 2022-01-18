@@ -9,7 +9,7 @@ with open(PLT_CONFIG_PATH, "r") as yml:
 plt.rcParams.update(cfg)
 
 
-def subplot(title=None, xlabel=None, ylabel=None):
+def subplot(xlabel=None, ylabel=None, title=None):
     fig, ax = plt.subplots()
     if title is not None:
         ax.set_title(title)
