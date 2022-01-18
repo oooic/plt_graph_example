@@ -20,6 +20,4 @@ def subplot(xlabel=None, ylabel=None, title=None):
     ax.yaxis.set_major_formatter(ScalarFormatter(useMathText=True))
     ax.xaxis.set_major_formatter(ScalarFormatter(useMathText=True))
     ax.minorticks_on()
-    ax.grid(which="major", color="black", alpha=0.4)
-    ax.grid(which="minor", color="gray", linestyle=":")
     return fig, ax
