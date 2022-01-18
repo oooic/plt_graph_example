@@ -8,3 +8,6 @@ legend.framealpha: 1
 xtick.direction: in
 ytick.direction: in
 mathtext.fontset: stix
+axes.formatter.limits:
+  - -2
+  - 3
