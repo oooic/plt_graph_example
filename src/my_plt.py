@@ -28,6 +28,10 @@ class Subplot():
         return self
 
     def __exit__(self, exc_type, exc_value, traceback):
+        if (exc_type is not None) or (exc_value is not None) or (traceback is not None):
+            print(exc_type)
+            print(exc_value)
+            print(traceback)
         if self.show_results:
             plt.show()
         plt.clf()
