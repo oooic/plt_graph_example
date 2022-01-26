@@ -49,7 +49,7 @@ class Subplot():
         return fig, ax
 
 
-def subplot(self, xlabel=None, ylabel=None, title=None):
+def subplot(xlabel=None, ylabel=None, title=None):
     fig, ax = plt.subplots()
     if title is not None:
         ax.set_title(title)
