@@ -21,7 +21,10 @@ from src.my_plt import Subplot  # Noqa
 
 
 ```python
-with Subplot(xlabel="hoge",ylabel="huga",title="piyo",show_results=True)as p:
+xlabel="time$[\\mathdefault{h}]$"
+ylabel="$\\dfrac{\\Delta A}{\\Delta B}\\,[\\mathdefault{wave^{-1}\\,h^{-1}}]$"
+title="example"
+with Subplot(xlabel=xlabel,ylabel=ylabel,title=title,show_results=True)as p:
     for i, coln in enumerate(df.columns):
         p.ax.plot(df.index, df[coln] * 1e6, label=coln)
     p.fig.savefig("Path to save images")
